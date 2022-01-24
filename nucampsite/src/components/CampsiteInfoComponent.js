@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { Card, CardImg, CardImgOverlay, CardText, CardBody, CardTitle } from 'reactstrap';
 
 class CampsiteInfo extends Component {
-
     renderCampsite(campsite) {
         return (
             <div className="col-md-5 m-1">
@@ -16,45 +15,42 @@ class CampsiteInfo extends Component {
             </div>
         )
     }
-
     renderComments(comments) {
         if (comments) {
             return (
                 <div className="col-md-5 m-1">
                     <h4>Comments</h4>
-                    {this.props.comments.map(comments => {
-                        return (<div key={comments.id}>
-                                <p>{comments.text}</p>
-                                <p>{comments.author}, {comments.date}</p>
-
-                        </div>
+                    {comments.map(comment => {
+                        return (
+                            <div key={comment.id}>
+                                <p>
+                                    {comment.text}
+                                </p>
+                                <p>
+                                    {comment.author},
+                                    {new Intl.DateTimeFormat('en-US', { year: 'numeric', month: 'short', day: '2-digit' }).format(new Date(Date.parse(comment.date)))}
+                                </p>
+                            </div>
                         )
                     })}
                 </div>
+
             )
-        }else{
-            <div/>
         }
     }
-
     render() {
         if (this.props.campsite) {
             return (
-                <div>
                 <div className="row">
                     {this.renderCampsite(this.props.campsite)}
-                </div>
-                <div className="row">
                     {this.renderComments(this.props.campsite.comments)}
-                </div>
                 </div>
             )
         } else {
             return <div />
         }
     }
-
-
 }
 
-export default CampsiteInfo
+
+export default CampsiteInfo;
