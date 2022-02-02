@@ -30,7 +30,7 @@ class Contact extends Component {
 
     handleSubmit(values) {
         console.log("Current state is: " + JSON.stringify(values));
-        alert("current state is: " + JSON.stringify(this.state));
+        alert("current state is: " + JSON.stringify(values));
     }
 
     render() {
@@ -73,48 +73,36 @@ class Contact extends Component {
                             <Row className="form-group" >
                                 <Label htmlFor="firstName" md={2}>First Name</Label>
                                 <Col md={10}>
-                                    <Control.text id="firstName" name="firstName"
+                                    <Control.text model=".firstName" id="firstName" name="firstName"
                                         placeholder="First Name"
-                                        value={this.state.firstName}
-                                        invalid={errors.firstName}
-                                        onBlur={this.handleBlur("firstName")}
-                                        onChange={this.handleInputChange}
+                                        className="form-control"
                                     />
                                 </Col>
                             </Row>
                             <Row className="form-group" >
                                 <Label htmlFor="lastName" md={2}>Last Name</Label>
                                 <Col md={10}>
-                                    <Control.text id="lastName" name="lastName"
+                                    <Control.text model=".lastName" id="lastName" name="lastName"
                                         placeholder="Last Name"
-                                        value={this.state.lastName}
-                                        invalid={errors.lastName}
-                                        onBlur={this.handleBlur("lastName")}
-                                        onChange={this.handleInputChange}
+                                        className="form-control"
                                     />
                                 </Col>
                             </Row>
                             <Row className="form-group" >
                                 <Label htmlFor="phoneNum" md={2}>Phone</Label>
                                 <Col md={10}>
-                                    <Control.text id="phoneNum" name="phoneNum"
+                                    <Control.text model=".phoneNum" id="phoneNum" name="phoneNum"
                                         placeholder="Phone number"
-                                        value={this.state.phoneNum}
-                                        invalid={errors.firstName}
-                                        onBlur={this.handleBlur("phoneNum")}
-                                        onChange={this.handleInputChange}
+                                        className="form-control"
                                     />
                                 </Col>
                             </Row>
                             <Row className="form-group" >
                                 <Label htmlFor="email" md={2}>Email</Label>
                                 <Col md={10}>
-                                    <Control.text id="email" name="email"
+                                    <Control.text model=".email" id="email" name="email"
                                         placeholder="Email"
-                                        value={this.state.email}
-                                        invalid={errors.email}
-                                        onBlur={this.handleBlur("email")}
-                                        onChange={this.handleInputChange}
+                                        className="form-control"
                                     />
                                 </Col>
                             </Row>
@@ -122,19 +110,18 @@ class Contact extends Component {
                                 <Col md={{ size: 4, offset: 2 }}>
                                     <div className="form-check">
                                         <Label check>
-                                            <Control.checkbox
+                                            <Control.checkbox 
+                                                model=".agree"
                                                 name="agree"
-                                                checked={this.state.agree}
-                                                onChange={this.handleInputChange}
+                                                className="form-check-input"
                                             /> {' '}
                                             <strong>May we contact you?</strong>
                                         </Label>
                                     </div>
                                 </Col>
                                 <Col md={4}>
-                                    <Control.select name="contactType"
-                                        value={this.state.contactType}
-                                        onChange={this.handleInputChange}>
+                                    <Control.select model=".contactType" name="contactType"
+                                        className="form-control">
                                         <option>By Phone</option>
                                         <option>By Email</option>
                                     </Control.select>
@@ -143,10 +130,9 @@ class Contact extends Component {
                             <Row className="form-group" >
                                 <Label htmlFor="feedback" md={2}>Your Feedback</Label>
                                 <Col md={10}>
-                                    <Control.textarea id="feedback" name="feedback"
+                                    <Control.textarea model=".feedback" id="feedback" name="feedback"
                                         rows="12"
-                                        value={this.state.feedback}
-                                        onChange={this.handleInputChange}
+                                        className="form-control"
                                     />
                                 </Col>
                             </Row>
