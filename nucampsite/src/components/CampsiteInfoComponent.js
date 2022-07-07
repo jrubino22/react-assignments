@@ -160,7 +160,7 @@ function CampsiteInfo(props) {
             <div className="container">
                 <div className="row">
                     <div className="col">
-                        <h4>[props.errMess</h4>
+                        <h4>[props.errMess]</h4>
                     </div>
                 </div>
             </div>
@@ -182,7 +182,6 @@ function CampsiteInfo(props) {
             <div className="row">
                 <RenderCampsite campsite={props.campsite} />
                 <RenderComments comments={props.comments}
-                    comments={props.comments}
                     postComment={props.postComment}
                     campsiteId={props.campsite.id}
                 />
